@@ -71,7 +71,11 @@ sudo add-apt-repository ppa:ondrej/apache2
 sudo apt-get update
 sudo apt-get install apache2
 
-7 Install Mongodb
+7 Install Mongodb nodejs
+
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
 
 8. Install Qt5
 
@@ -90,5 +94,15 @@ sudo apt-get install vlc browser-plugin-vlc
 make
 
 
+10 install protobuf 3.1.0
 
+wget https://github.com/google/protobuf/releases/download/v3.1.0/protobuf-cpp-3.1.0.zip
 
+sudo apt-get install autoconf automake libtool curl make g++ unzip
+./autogen.sh
+
+./configure
+make
+make check
+sudo make install
+sudo ldconfig # refresh shared library cache.

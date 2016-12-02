@@ -1,0 +1,94 @@
+1. Install opencv
+
+sudo apt-get install build-essential
+
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+cd ~/<my_working _directory>
+git clone https://github.com/Itseez/opencv.git
+
+cd ~/opencv
+mkdir release
+cd release
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
+
+make -j8 # -j8 runs 8 jobs in parallel.
+         # Change 8 to number of hardware threads available.
+sudo make install
+
+
+
+2. Install Cuda 7.5
+
+
+wget developer.download.nvidia.com/compute/cuda/7.5/Prod/local_installers/cuda_7.5.18_linux.run
+
+sudo vim /etc/profile
+
+add:
+export PATH=/usr/local/cuda-7.5/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-7.5/lib64:$LD_LIBRARY_PATH
+
+
+sudo source /etc/profile
+
+add file cuda.conf in /etc/ld.so.conf.d
+
+/usr/local/cuda-7.5/lib64
+
+sudo /sbin/ldconfig
+sudo /sbin/ldconfig -v
+
+http://www.nvidia.com/download/driverResults.aspx/105665/en-us
+
+
+3. Install Caff and Protobuf
+
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+sudo apt-get install --no-install-recommends libboost-all-dev
+
+sudo apt-get install libatlas-base-dev
+
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
+
+4. Install H264
+sudo apt-get install libx264-dev
+
+5. Install libcurl and jason-c
+
+install jason-c
+sudo apt-get install libjson0 libjson0-dev
+
+install libcurl:
+
+sudo apt-get install libcurl4-gnutls-dev
+
+6. Install apache2
+
+sudo add-apt-repository ppa:ondrej/apache2
+sudo apt-get update
+sudo apt-get install apache2
+
+7 Install Mongodb
+
+8. Install Qt5
+
+sudo apt-get install qtbase5-dev
+sudo apt-get install qt5-default qttools5-dev-tools
+http://wiki.qt.io/Building_Qt_5_from_Git
+
+9. Install VLC
+
+sudo apt-get update
+sudo apt-get install vlc browser-plugin-vlc
+
+10 Install Live555
+
+./genMakefiles linux
+make
+
+
+
+
